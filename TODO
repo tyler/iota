@@ -1,0 +1,16 @@
+First Release Roadmap:
+
+- Iota Controller View gets factored out into Markio, cleaned up.
+- Iota Model factored out into its own things, refactored
+- Consider changing the way Markio works completely, first creating an 
+  abstract syntax tree.  (Thus allowing removal or refactoring of things
+  that don't quite work.)
+- Consider ditching MVC for a simple Rack-like way of doing things
+- Think through changing the way Iota Model works...
+  - I'm forcing the pattern onto a system it doesn't work on (prototype 
+    vs. class)
+  - Maybe there should be a singleton object that has finder and various
+    other table-wide methods on it
+  - Then we have a Iota Model Row object which gets filled in with row
+    related methods
+
