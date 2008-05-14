@@ -1,0 +1,7 @@
+Iota is a small web application framework written in Io.  (Get it? Iota? Hah.)
+It is insanely far from production-ready.  It has not even been extracted from
+the sample application which I've been developing it around.  Things will
+change... and break... and then get fixed... only to break again.  But I'm
+pleased with how it's going, so maybe you'll like it as well.
+
+Iota is distributed under the MIT License.
