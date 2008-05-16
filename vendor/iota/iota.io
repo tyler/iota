@@ -41,7 +41,7 @@ Iota Router route := method(path, httpMethod, controller,
 )
 
 Iota Router scan := method(url, meth,
-    cr := block(obj, obj at("path") asRegex matchesFor(url) next)
+    cr := block(obj, obj at("path") asRegex matchesIn(url) next)
     route := routes detect(v, cr call(v) and v at("httpMethod") == meth )
     if(route isNil, return(nil))
     route params := Map clone
@@ -53,7 +53,7 @@ Iota Router scan := method(url, meth,
 
 Iota Router dispatch := method(request, response,
     route := scan(request resource, request httpMethod)
-    if(route isNil, return(fail))
+    if(route isNil, return(fail(request, response)))
   
     cookies := Iota Session handle_cookies(request cookies)
     session := Iota Session get(request cookies)
@@ -125,7 +125,7 @@ Iota Controller View forward := method(
 Iota Controller View parseTag := method(name,
   rx := "[^:.]+" asRegex
   out := Map clone
-  mchs := rx matchesFor(name)
+  mchs := rx matchesIn(name)
   mchs all foreach(i, m,
     ss := mchs splitString at(i)
     if(ss == "",
